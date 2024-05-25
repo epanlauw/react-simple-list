@@ -1,42 +1,25 @@
+import { Heading, VStack } from '@chakra-ui/react';
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import AddTask from './components/AddTask';
+import TaskList from './components/TaskList';
 
-function App() {
+const App = () => {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
+    <VStack p={4} minH="100vh">
+      <Heading
+        mt="5"
+        p="5"
+        fontWeight="extrabold"
+        size="xl"
+        bgGradient="linear(to-l, teal.300, blue.500)"
+        bgClip="text"
+      >
+        Todo List
+      </Heading>
+      <AddTask />
+      <TaskList />
+    </VStack>
   );
-}
+};
 
 export default App;
